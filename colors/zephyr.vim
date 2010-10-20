@@ -1,8 +1,14 @@
 " Vim color file
 " Original Maintainer: Matt Creenan <mattcreenan@gmail.com>
 
-" zephyr v1.0
+" Zephyr v1.01
 " A modification of the gardener colorscheme v1.1
+
+" 1.01
+" - Updated some colors
+"
+" 1.0
+" - Initial release
 
 " Dark scheme, easy on eyes, very distinct colors to make
 " code easier to read
@@ -11,12 +17,7 @@ set background=dark
 hi clear
 syntax reset
 
-" TODO: Needed?
-if exists("g:gardener_setnum")
-	hi linenr     cterm=BOLD   ctermfg=235   ctermbg=244
-else
-	hi linenr     cterm=BOLD   ctermfg=244   ctermbg=235
-endif
+hi linenr     cterm=BOLD   ctermfg=244   ctermbg=235
 
 exec "hi Cursor         cterm=BOLD   ctermfg=255   ctermbg=167"
 exec "hi CursorIM       cterm=BOLD   ctermfg=255   ctermbg=167"
@@ -41,12 +42,6 @@ exec "hi StatusLineNC   cterm=NONE   ctermfg=16    ctermbg=229"
 exec "hi StatusLine     cterm=BOLD   ctermfg=255   ctermbg=167"
 exec "hi VertSplit      cterm=NONE   ctermfg=16    ctermbg=229"
 
-exec "hi DiffAdd        cterm=NONE   ctermfg=255   ctermbg=60"
-exec "hi DiffAdd        cterm=NONE   ctermfg=255   ctermbg=65"
-exec "hi DiffAdd        cterm=NONE   ctermfg=255   ctermbg=95"
-exec "hi DiffAdd        cterm=BOLD   ctermfg=255   ctermbg=95"
-
-
 exec "hi Constant       cterm=BOLD   ctermfg=255  ctermbg=NONE"
 exec "hi String         cterm=NONE   ctermfg=230  ctermbg=NONE"
 exec "hi Character      cterm=BOLD   ctermfg=230  ctermbg=NONE"
@@ -58,13 +53,9 @@ exec "hi Identifier     cterm=NONE   ctermfg=223  ctermbg=NONE"
 exec "hi Function       cterm=BOLD   ctermfg=229  ctermbg=NONE"
 exec "hi Statement      cterm=BOLD   ctermfg=230  ctermbg=NONE"
 
-exec "hi Define         cterm=BOLD   ctermfg=68  ctermbg=NONE"
-exec "hi Conditional    cterm=BOLD   ctermfg=149  ctermbg=NONE"
 
 exec "hi Repeat         cterm=BOLD   ctermfg=208  ctermbg=NONE"
 exec "hi Label          cterm=BOLD   ctermfg=225  ctermbg=NONE"
-exec "hi Operator       cterm=BOLD   ctermfg=173  ctermbg=NONE"
-exec "hi Keyword        cterm=BOLD   ctermfg=86   ctermbg=NONE"
 exec "hi Exception      cterm=BOLD   ctermfg=86   ctermbg=NONE"
 
 exec "hi PreProc        cterm=BOLD   ctermfg=222   ctermbg=NONE"
@@ -109,9 +100,6 @@ match WhitespaceEOL /^(\ \+)[^\*]/
 hi WhitespaceBOL ctermfg=238
 match WhitespaceBOL /^\t\+\ */
 
-" Comments
-hi Comment gui=bold ctermfg=green ctermbg=NONE
-
 " Tabs (not the whitespace kind)
 if exists("g:zephyr_no_tabs")
 else
@@ -129,15 +117,18 @@ else
 	hi DiffAdd    term=reverse cterm=bold ctermbg=22  ctermfg=252
 endif
 
+hi Define ctermfg=68  ctermbg=none  cterm=bold
 hi Number  ctermfg=124
 hi Boolean ctermfg=124
 hi Float   ctermfg=124
-hi Function ctermfg=68
+hi Function ctermfg=73 ctermbg=none  cterm=bold
 hi Statement ctermfg=68
 hi Constant ctermfg=88
-hi Comment ctermfg=154
+hi Comment ctermfg=154 ctermbg=none
+hi SpecialComment ctermfg=154 ctermbg=none
 hi Identifier ctermfg=172
-hi Operator ctermfg=221
+hi Operator ctermfg=221 ctermbg=none
+hi Keyword ctermfg=221 ctermbg=none
 hi String ctermfg=241
 hi Conditional ctermfg=68
 hi Repeat ctermfg=68
@@ -202,6 +193,12 @@ hi cssdefinition ctermbg=233
 hi csspseudoclass ctermbg=233
 hi csspseudoclassid ctermbg=233
 
+" PHP Specific
+hi phpRegionDelimiter cterm=bold ctermfg=228
+hi phpSpecialFunction cterm=bold ctermfg=79
+
+let php_sql_query = 0
+let php_htmlInStrings = 0
+
 let g:colors_name = "zephyr"
 let colors_name   = "zephyr"
-
